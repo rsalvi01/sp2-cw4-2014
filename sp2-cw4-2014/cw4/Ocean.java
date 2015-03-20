@@ -56,10 +56,9 @@ public class Ocean {
 	
 	//INSTANCE METHODS
 	void placeAllShipsRandomly(){
-		
-		boolean placed = false;
-		
+				
 		for (int i = 0; i < actualShips.length; i++){
+			boolean placed = false;
 			while (!placed){
 				int row = getRandom(10);
 				int column = getRandom(10);
@@ -123,6 +122,10 @@ public class Ocean {
 			}
 			System.out.println();
 		}
+	}
+	
+	Ship[][] getShipArray(){				
+		return ships;
 	}
 
 }//END OF CLASS

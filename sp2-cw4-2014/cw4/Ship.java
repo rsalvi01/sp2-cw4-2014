@@ -53,7 +53,11 @@ public class Ship {
 		if(horizontal){
 			for(int i = 0; i < this.getLength(); i++)
 			{
-				if(ocean.isOccupied(row, column+i) || (row < 0 || row > 9) || (column+i < 0 || column+i > 9) ){
+				if((row < 0 || row > 9) || (column+i < 0 || column+i > 9)){
+					return false;
+				}
+				
+				if(ocean.isOccupied(row, column+i)){
 					return false;
 				}
 			}						
@@ -61,7 +65,11 @@ public class Ship {
 		else{
 			for(int i = 0; i < this.getLength(); i++)
 			{
-				if(ocean.isOccupied(row, column+i) || (row+i < 0 || row+i > 9) || (column < 0 || column > 9) ){
+				if((row+i < 0 || row+i > 9) || (column < 0 || column > 9)){
+					return false;
+				}
+				
+				if(ocean.isOccupied(row+i, column)){
 					return false;
 				}
 			}
@@ -85,7 +93,7 @@ public class Ship {
 		this.setBowRow(row);
 		this.setBowColumn(column);
 		
-		if(this.horizontal){
+		if(horizontal){
 			for(int i = 0; i < this.length; i++){
 				ocean.ships[row][column+i] = this;
 			}			

@@ -32,6 +32,15 @@ public class OceanTest {
 	}
 	
 	@Test
+	public void placeAllShipsRandomly(){
+		Ocean a = new Ocean();
+		
+		a.placeAllShipsRandomly();
+		
+		
+	}
+	
+	@Test
 	public void isOccupied() {
 		Ocean a = new Ocean();
 		
