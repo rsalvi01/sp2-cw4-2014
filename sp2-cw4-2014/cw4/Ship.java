@@ -105,7 +105,7 @@ public class Ship {
 	}
 	
 	//TODO if I use this method, I need to modify the method with the same name in the class OCEAN 
-	boolean shootAt(int row, int column){				
+	boolean shootAt(int row, int column){			
 		return true;
 	}
 	

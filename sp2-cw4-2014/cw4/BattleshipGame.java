@@ -23,13 +23,25 @@ public class BattleshipGame {
 		a.placeAllShipsRandomly();
 
 		
-		System.out.println("BATTLESHIP GAME");
+		System.out.println("WELCOME TO MY BATTLESHIP GAME");
 		System.out.println("Ships sunk: "+a.getShipsSunk());
 		System.out.println("Shots fired: "+a.getShotsFired());
 		System.out.println("Shots hit: "+a.getHitCount());
 		System.out.println();
 		
 		a.print();
+		
+			if(a.isGameOver()){
+				System.out.println("Congratulations, you have sunk all ships firing "+a.getShotsFired()+" shots.");
+				System.out.println("Please enter 1 if you would you like to play again."); 
+				
+				Scanner in = new Scanner(System.in);
+				
+				
+				if(i != 1)
+				playagain = false;			
+			}
+		
 		}
 
 
