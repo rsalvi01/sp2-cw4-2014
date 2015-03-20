@@ -49,7 +49,6 @@ public class Ship {
 	}
 	
 	//INSTANCE METHODS
-	//TODO check adjacent blocks aren't occupied
 	boolean okToPlaceShipAt(int row, int column, boolean horizontal, Ocean ocean){
 		if(horizontal){
 			for(int i = 0; i < this.getLength(); i++)
@@ -79,7 +78,7 @@ public class Ship {
 		}
 		
 		return true;
-	}
+	}//END OF METHOD
 	
 	void placeShipAt(int row, int column, boolean horizontal, Ocean ocean){
 		
