@@ -71,7 +71,7 @@ public class Ship {
 		for(int i = row-1; i < this.getLength()+2; i++){
 			for (int j = column-1; j < this.getLength()+2; j++ ){
 				if(ocean.isOccupied(i,j) && ocean.ships[i][j] != this){
-					return false; 
+					return false;
 				}
 			}
 		}
