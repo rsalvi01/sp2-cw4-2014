@@ -20,10 +20,17 @@ public class Cruiser extends Ship {
 		return "Cruiser";
 	}
 	
-	@Override public String toString(){
-		//for testing
-		return this.isSunk() ? "x" : "C";
-		//return this.isSunk() ? "x" : "S";		
-	}
+	@Override public String toString(int i, int j){	
+		
+		if(this.isSunk()){
+			return "x";
+		}
 	
+		if(!this.horizontal){
+			return this.hit[i-this.getBowRow()] ? "S" : ".";
+		}
+		else{
+			return this.hit[i-this.getBowColumn()] ? "S" : ".";
+		}
+	}	
 }

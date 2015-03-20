@@ -42,15 +42,15 @@ public class Ocean {
 	}
 	
 	//GETTER METHODS
-	private int getShotsFired(){
+	int getShotsFired(){
 		return this.shotsFired;
 	}
 	
-	private int getHitCount(){
-		return this.getHitCount();
+	int getHitCount(){
+		return this.hitCount;
 	}
 	
-	private int getShipsSunk(){
+	int getShipsSunk(){
 		return this.shipsSunk;
 	}
 	
@@ -88,7 +88,7 @@ public class Ocean {
 		else if(this.ships[row][column].isSunk()){
 				return false;
 		}
-		else{			
+		else{			//TODO Inform player when a ship is sunk, decide to use and understand Ship.shootAt() method 
 			if(!this.ships[row][column].isHorizonal()){
 				int temp = this.ships[row][column].getBowRow();
 
@@ -102,6 +102,9 @@ public class Ocean {
 				if(this.ships[row][column].hit[column - temp] = false){
 				this.ships[row][column].hit[column - temp] = true;				
 				}			
+			}
+			if(this.ships[row][column].isSunk()){
+				System.out.println("You have sunk a "+this.ships[row][column].getShipType()+".");
 			}
 			return true;
 		}			
@@ -121,7 +124,7 @@ public class Ocean {
 		for(int i = 0; i < 10; i++){
 			System.out.print(i+"  ");
 			for (int j = 0; j < 10; j++){
-				System.out.print(this.ships[i][j].toString()+"  ");
+				System.out.print(this.ships[i][j].toString(i,j)+"  ");
 			}
 			System.out.println();
 		}

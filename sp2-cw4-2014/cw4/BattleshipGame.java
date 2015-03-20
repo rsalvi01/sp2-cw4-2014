@@ -16,9 +16,22 @@ public class BattleshipGame {
 	 */
 	public static void main(String[] args) {
 		
+		boolean playagain = true;
+		
+		while(playagain){
 		Ocean a = new Ocean();
 		a.placeAllShipsRandomly();
+
+		
+		System.out.println("BATTLESHIP GAME");
+		System.out.println("Ships sunk: "+a.getShipsSunk());
+		System.out.println("Shots fired: "+a.getShotsFired());
+		System.out.println("Shots hit: "+a.getHitCount());
+		System.out.println();
+		
 		a.print();
+		}
+
 
 	}
 

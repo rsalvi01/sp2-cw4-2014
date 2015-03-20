@@ -20,8 +20,18 @@ public class Submarine extends Ship {
 		return "Submarine";
 	}
 	
-	@Override public String toString(){
-		return this.isSunk() ? "x" : "S";
+	@Override public String toString(int i, int j){	
+		
+		if(this.isSunk()){
+			return "x";
+		}
+	
+		if(!this.horizontal){
+			return this.hit[i-this.getBowRow()] ? "S" : ".";
+		}
+		else{
+			return this.hit[i-this.getBowColumn()] ? "S" : ".";
+		}
 	}
 	
 }

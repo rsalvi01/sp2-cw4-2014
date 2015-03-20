@@ -20,19 +20,17 @@ public class Battleship extends Ship {
 		return "Battleship";
 	}
 	
-	@Override public String toString(){	
-		int row = this.getBowRow(); 
-		int column = this.getBowColumn();
+	@Override public String toString(int i, int j){	
 		
 		if(this.isSunk()){
 			return "x";
 		}
-		
-		if(!this.hit[0]){
-			return ".";
+	
+		if(!this.horizontal){
+			return this.hit[i-this.getBowRow()] ? "S" : ".";
 		}
 		else{
-			return "S";
+			return this.hit[i-this.getBowColumn()] ? "S" : ".";
 		}
 	}
 
