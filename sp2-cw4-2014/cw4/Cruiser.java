@@ -21,7 +21,9 @@ public class Cruiser extends Ship {
 	}
 	
 	@Override public String toString(){
-		return this.isSunk() ? "x" : "S";
+		//for testing
+		return this.isSunk() ? "x" : "C";
+		//return this.isSunk() ? "x" : "S";		
 	}
 	
 }

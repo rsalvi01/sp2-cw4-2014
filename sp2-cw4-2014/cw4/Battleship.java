@@ -20,8 +20,20 @@ public class Battleship extends Ship {
 		return "Battleship";
 	}
 	
-	@Override public String toString(){
-		return this.isSunk() ? "x" : "S";				
+	@Override public String toString(){	
+		int row = this.getBowRow(); 
+		int column = this.getBowColumn();
+		
+		if(this.isSunk()){
+			return "x";
+		}
+		
+		if(!this.hit[0]){
+			return ".";
+		}
+		else{
+			return "S";
+		}
 	}
 
 }

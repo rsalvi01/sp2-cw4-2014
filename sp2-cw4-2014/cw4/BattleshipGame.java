@@ -18,6 +18,7 @@ public class BattleshipGame {
 		
 		Ocean a = new Ocean();
 		a.placeAllShipsRandomly();
+		a.print();
 
 	}
 

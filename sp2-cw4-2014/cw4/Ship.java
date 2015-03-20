@@ -51,8 +51,7 @@ public class Ship {
 	//INSTANCE METHODS
 	boolean okToPlaceShipAt(int row, int column, boolean horizontal, Ocean ocean){
 		if(horizontal){
-			for(int i = 0; i < this.getLength(); i++)
-			{
+			for(int i = 0; i < this.getLength(); i++){
 				if((row < 0 || row > 9) || (column+i < 0 || column+i > 9)){
 					return false;
 				}
@@ -63,8 +62,7 @@ public class Ship {
 			}						
 		}
 		else{
-			for(int i = 0; i < this.getLength(); i++)
-			{
+			for(int i = 0; i < this.getLength(); i++){
 				if((row+i < 0 || row+i > 9) || (column < 0 || column > 9)){
 					return false;
 				}
@@ -75,9 +73,9 @@ public class Ship {
 			}
 		}
 		
-		for(int i = row-1; i < this.getLength()+2; i++){
-			for (int j = column-1; j < this.getLength()+2; j++ ){
-				if(i >= 0 && i < 10 && j >= 0 && j > 10){
+		for(int i = row-1; i <= row + this.getLength(); i++){
+			for (int j = column-1; j <= column + this.getLength(); j++ ){
+				if(i >= 0 && i < 10 && j >= 0 && j < 10){
 						if(ocean.isOccupied(i,j) && ocean.ships[i][j] != this){
 							return false;
 					}

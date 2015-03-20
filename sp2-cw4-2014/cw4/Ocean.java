@@ -116,16 +116,14 @@ public class Ocean {
 	}
 		
 	void print(){
+		System.out.println("   0  1  2  3  4  5  6  7  8  9");
+		
 		for(int i = 0; i < 10; i++){
+			System.out.print(i+"  ");
 			for (int j = 0; j < 10; j++){
-				System.out.print(this.ships[i][j].toString()+" ");
+				System.out.print(this.ships[i][j].toString()+"  ");
 			}
 			System.out.println();
 		}
 	}
-	
-	Ship[][] getShipArray(){				
-		return ships;
-	}
-
 }//END OF CLASS
