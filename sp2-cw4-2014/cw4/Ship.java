@@ -49,7 +49,6 @@ public class Ship {
 	}
 	
 	//INSTANCE METHODS
-	//LAST WORKED HERE ON 18/03/15 AT 17:45H
 	//TODO check adjacent blocks aren't occupied
 	boolean okToPlaceShipAt(int row, int column, boolean horizontal, Ocean ocean){
 		if(horizontal){
@@ -58,7 +57,7 @@ public class Ship {
 				if(ocean.isOccupied(row, column+i) || (row < 0 || row > 9) || (column+i < 0 || column+i > 9) ){
 					return false;
 				}
-			}
+			}						
 		}
 		else{
 			for(int i = 0; i < this.getLength(); i++)
@@ -69,10 +68,32 @@ public class Ship {
 			}
 		}
 		
+		for(int i = row-1; i < this.getLength()+2; i++){
+			for (int j = column-1; j < this.getLength()+2; j++ ){
+				if(ocean.isOccupied(i,j) && ocean.ships[i][j] != this){
+					return false;
+				}
+			}
+		}
+		
 		return true;
 	}
 	
 	void placeShipAt(int row, int column, boolean horizontal, Ocean ocean){
+		
+		this.setBowRow(row);
+		this.setBowColumn(column);
+		
+		if(this.horizontal){
+			for(int i = 0; i < this.length; i++){
+				ocean.ships[row][column+i] = this;
+			}			
+		}
+		else{
+			for(int i = 0; i < this.length; i++){
+				ocean.ships[row+i][column] = this;
+			}
+		}			
 		
 	}
 	
