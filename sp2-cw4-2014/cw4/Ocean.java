@@ -13,6 +13,7 @@ public class Ocean {
 
 	private final Random rand = new Random(); 
 	Ship[][] ships = new Ship[10][10];
+	Ship[] actualShips = new Ship[10];	
 	int shotsFired;
 	int hitCount;
 	int shipsSunk;
@@ -21,6 +22,17 @@ public class Ocean {
 		this.shotsFired = 0;
 		this.hitCount = 0;
 		this.shipsSunk = 0;
+		
+		actualShips[0] = new Battleship();
+		actualShips[1] = new Cruiser();
+		actualShips[2] = new Cruiser();
+		actualShips[3] = new Destroyer();
+		actualShips[4] = new Destroyer();
+		actualShips[5] = new Destroyer();
+		actualShips[6] = new Submarine();
+		actualShips[7] = new Submarine();
+		actualShips[8] = new Submarine();
+		actualShips[9] = new Submarine();
 		
 		for (int i = 0; i < this.ships.length; i++) {
 		    for (int j = 0; j < this.ships.length; j++) {
@@ -45,6 +57,22 @@ public class Ocean {
 	//INSTANCE METHODS
 	void placeAllShipsRandomly(){
 		
+		boolean placed = false;
+		
+		for (int i = 0; i < actualShips.length; i++){
+			while (!placed){
+				int row = getRandom(10);
+				int column = getRandom(10);
+				boolean horizontal = getRandom(2) == 0 ? true : false;
+				
+				if(actualShips[i].okToPlaceShipAt(row, column, horizontal, this)){				
+					for(int j = 0; j < actualShips[i].getLength(); j++){					
+						actualShips[i].placeShipAt(row, column, horizontal, this);
+					}
+					placed = true;
+				}
+			}
+		}
 	}
 		
 	boolean isOccupied(int row, int column){
@@ -80,8 +108,8 @@ public class Ocean {
 		}			
 	}//EMD OF METHOD
 	
-	int getRandom(){
-		return rand.nextInt(10);
+	int getRandom(int temp){
+		return rand.nextInt(temp);
 	}
 	
 	boolean isGameOver(){
