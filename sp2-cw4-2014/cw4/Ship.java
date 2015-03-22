@@ -90,6 +90,7 @@ public class Ship {
 		
 		this.setBowRow(row);
 		this.setBowColumn(column);
+		this.setHorizontal(horizontal);
 		
 		if(horizontal){
 			for(int i = 0; i < this.length; i++){
@@ -104,8 +105,21 @@ public class Ship {
 		
 	}
 	
-	//TODO if I use this method, I need to modify the method with the same name in the class OCEAN 
-	boolean shootAt(int row, int column){			
+	boolean shootAt(int row, int column){
+		if(!this.isHorizonal()){
+			int temp = this.getBowRow();
+
+			if(!this.hit[row - temp]){
+				this.hit[row - temp] = true;				
+			}
+		}
+		else{
+			int temp = this.getBowColumn();
+
+			if(!this.hit[column - temp]){
+				this.hit[column - temp] = true;				
+			}
+		}
 		return true;
 	}
 	

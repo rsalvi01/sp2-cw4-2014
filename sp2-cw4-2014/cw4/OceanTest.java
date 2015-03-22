@@ -61,7 +61,7 @@ public class OceanTest {
 		Ocean a = new Ocean();
 				
 		for (int i = 0; i < 10; i++){
-			System.out.print(a.getRandom(10));			
+			System.out.print(a.getRandom(2) == 0 ? true : false);			
 		}
 		System.out.println();
 	}

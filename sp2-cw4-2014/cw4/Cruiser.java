@@ -30,7 +30,7 @@ public class Cruiser extends Ship {
 			return this.hit[i-this.getBowRow()] ? "S" : ".";
 		}
 		else{
-			return this.hit[i-this.getBowColumn()] ? "S" : ".";
+			return this.hit[j-this.getBowColumn()] ? "S" : ".";
 		}
 	}	
 }

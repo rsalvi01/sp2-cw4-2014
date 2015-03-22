@@ -89,25 +89,17 @@ public class Ocean {
 			return false;
 		}
 		else if(this.ships[row][column].isSunk()){
+				this.hitCount++;
 				return false;
 		}
-		else{			//TODO Inform player when a ship is sunk, decide to use and understand Ship.shootAt() method 
-			if(!this.ships[row][column].isHorizonal()){
-				int temp = this.ships[row][column].getBowRow();
-
-				if(this.ships[row][column].hit[row - temp] = false){
-				this.ships[row][column].hit[row - temp] = true;				
-				}
-			}
-			else{
-				int temp = this.ships[row][column].getBowColumn();
-
-				if(this.ships[row][column].hit[column - temp] = false){
-				this.ships[row][column].hit[column - temp] = true;				
-				}			
-			}
+		else{ 
+			this.hitCount++;
+			this.ships[row][column].shootAt(row, column);
 			if(this.ships[row][column].isSunk()){
+				this.shipsSunk++;
+				System.out.println();
 				System.out.println("You have sunk a "+this.ships[row][column].getShipType()+".");
+				System.out.println();
 			}
 			return true;
 		}			
