@@ -60,9 +60,10 @@ public class OceanTest {
 	public void getRandom(){
 		Ocean a = new Ocean();
 				
-		for (int i = 0; i < 100; i++){
-			System.out.print(a.getRandom(10));
+		for (int i = 0; i < 10; i++){
+			System.out.print(a.getRandom(10));			
 		}
+		System.out.println();
 	}
 	
 	@Test
@@ -74,5 +75,16 @@ public class OceanTest {
 		a.shipsSunk = 10;
 		
 		assertTrue(a.isGameOver());
+	}
+	
+	@Test
+	public void getUserInput() {
+	
+		Ocean a = new Ocean();
+		int temp = a.getUserInput("row");
+		int temp1 = a.getUserInput("column");
+		assertTrue(temp >= 0 && temp<=9);
+		assertTrue(temp1 >= 0 && temp1<=9);
+		
 	}
 }

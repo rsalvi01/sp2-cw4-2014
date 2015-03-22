@@ -4,6 +4,7 @@
 package cw4;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * @author rsalvi01
@@ -82,7 +83,9 @@ public class Ocean {
 		this.shotsFired ++;
 		
 		if(!this.isOccupied(row, column)){
-			if(!this.ships[row][column].hit[0]) this.ships[row][column].hit[0] = true;
+			if(!this.ships[row][column].hit[0]){
+				this.ships[row][column].hit[0] = true;
+			}
 			return false;
 		}
 		else if(this.ships[row][column].isSunk()){
@@ -119,6 +122,7 @@ public class Ocean {
 	}
 		
 	void print(){
+		System.out.println();
 		System.out.println("   0  1  2  3  4  5  6  7  8  9");
 		
 		for(int i = 0; i < 10; i++){
@@ -128,5 +132,37 @@ public class Ocean {
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
+	
+	int getUserInput(String coord){
+		Scanner in = new Scanner(System.in);
+		int userInput = -1;
+
+		if(coord.equals("row") || coord.equals("column")){
+			while(userInput > 9 || userInput < 0){
+				
+				System.out.println("Please input your "+coord+" coordinate. It must be an integer from 0 to 9: ");
+				
+				while (!in.hasNextInt()){					
+					System.out.println();
+					System.out.println(in.next()+" is not a valid integer. Please try again");
+					System.out.println();				
+				}
+
+				userInput = in.nextInt();
+
+				if(userInput > 9 || userInput < 0){
+					System.out.println();
+					System.out.println(userInput+" is outside the valid range (from 0 to 9).");
+					System.out.println();					
+				}
+			}
+		}
+		else{
+			System.out.println("Please enter 1 if you would you like to play again.");
+			userInput = in.next().equals("1") ? 1 : 0;
+		}		
+		return userInput;
+	}	
 }//END OF CLASS
